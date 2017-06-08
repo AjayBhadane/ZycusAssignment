@@ -12,7 +12,8 @@ Assumptions
  
  Hereon Key = K, Value = V
  
- ####Methods:
+ Methods:
+ ---
  1. `public synchronized V get(K key)`: This method returns the value associated with the given Key.
  2. `public synchronized void put(K key, V value)`: This method stores the value in the element of the map matching the Key.
  3. `public int getSize()`:Returns the current size of the Map
