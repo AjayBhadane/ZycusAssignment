@@ -21,3 +21,32 @@ Assumptions
  5. `public void removeKey(K key)`:Removes the element corresponding to the given Key.
  6. `public void saveMap(String path)`:Saves the map on the disk with location string provided in path.
  7. `public Map<K, V> retrieveMap(String path)`:returns the map object from the file path specified
+
+Here is a simple example:
+---
+````
+public class Main {
+
+    public static void main(String[] args) {
+        Map<Integer, String> map = new Map<>();
+        map.put(1,"one");
+        map.put(2,"two");
+
+        System.out.println(map.get(1));
+        map.saveMap("map.ser");
+        map.retrieveMap("map.set");
+        System.out.println(map.get(2));
+    }
+}
+````
+The output is:
+
+one
+
+two
+
+The above code creates a `Map` object called `map`.
+ 
+First the put method is called twice on the object to add two elements 'one' and 'two' with Keys '1' and '2'.
+
+The map is then saved on the disk and retrieved again and the value of the second element is printed.
