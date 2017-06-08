@@ -8,7 +8,7 @@ public class Main {
 
         System.out.println(map.get(1));
         map.saveMap("map.ser");
-        map.retrieveMap("map.set");
+        map = map.retrieveMap("map.ser");
         System.out.println(map.get(2));
     }
 }
