@@ -6,7 +6,7 @@ Assumptions
 1. The initial size of the Map is 20 elements
 2. The Map is a Hash-map.
  
- Implmentstion
+ Implementation
  ===
  The class is a generic one. It has two data-type inputs a Key and a Value.
  
