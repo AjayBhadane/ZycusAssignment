@@ -39,7 +39,7 @@ public class Map<K, V> implements Serializable{
         }
     }
 
-    public void increseCapacity(){
+    private void increseCapacity(){
         if(size == values.length){
             int newSize = values.length * 2;
             values = Arrays.copyOf(values,  newSize);
