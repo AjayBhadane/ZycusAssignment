@@ -29,6 +29,7 @@ public class Map<K, V> implements Serializable{
         for (int i = 0; i < size; i++){
             if(values[i].getKey().equals(key)){
                 values[i].setValue(value);
+                insert = false;
             }
         }
 
