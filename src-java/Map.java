@@ -1,4 +1,4 @@
-import java.io.Serializable;
+import java.io.*;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -70,5 +70,73 @@ public class Map<K, V> implements Serializable{
             set.add(values[i].getKey());
         }
         return set;
+    }
+
+    public void saveMap(String path){
+        FileOutputStream file = null;
+        ObjectOutputStream oos = null;
+
+        try{
+            file = new FileOutputStream("map.ser");
+            oos = new ObjectOutputStream(file);
+            oos.writeObject(this);
+        }
+        catch(IOException ie){
+            ie.printStackTrace();
+        }
+        finally {
+            if(file != null){
+                try{
+                    file.close();
+                }catch(IOException ie){
+                    ie.printStackTrace();
+                }
+            }
+
+            if(oos  != null){
+                try{
+                    oos.close();
+                }catch(IOException ie){
+                    ie.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public Map<K, V> retrieveMap(String path){
+
+        FileInputStream fin = null;
+        ObjectInputStream ois = null;
+        Map map = null;
+        try{
+            fin = new FileInputStream("map.ser");
+            ois = new ObjectInputStream(fin);
+            map = (Map)ois.readObject();
+        }catch (IOException ie){
+            ie.printStackTrace();
+        }catch(SecurityException se){
+            se.printStackTrace();
+        }catch(ClassNotFoundException cnf){
+            cnf.printStackTrace();
+        }
+        finally{
+            if(fin!=null){
+                try{
+                    fin.close();
+                }catch(IOException ie){
+                    ie.printStackTrace();
+                }
+            }
+
+            if(ois!=null){
+                try{
+                    ois.close();
+                }catch(IOException ie){
+                    ie.printStackTrace();
+                }
+            }
+        }
+
+        return map;
     }
 }
